@@ -1,0 +1,45 @@
+{
+  "name": "fmi-api",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "dependencies": {
+    "axios": "0.18.0",
+    "lodash": "4.17.11",
+    "xml-js": "1.6.8"
+  },
+  "devDependencies": {
+    "dotenv": "6.2.0",
+    "eslint": "5.12.0",
+    "eslint-config-prettier": "3.3.0",
+    "husky": "1.3.1",
+    "lint-staged": "8.1.0",
+    "prettier": "1.15.3"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true
+      },
+      "ecmaVersion": "2017"
+    },
+    "extends": [
+      "eslint:recommended",
+      "prettier"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint",
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
