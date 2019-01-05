@@ -12,9 +12,18 @@ const assert = require("assert");
 
 const fmi = require("../src");
 
-async function test() {
-  assert(_.has(await fmi.getForecast("helsinki"), ["Temperature"]));
-  assert(_.has(await fmi.getForecast("jyvaskyla"), ["Temperature"]));
+const PLACES_TO_TEST = [
+  "alajärvi",
+  "brändö",
+  "eckerö",
+  "helsinki",
+  "jyväskylä"
+];
+
+function test() {
+  PLACES_TO_TEST.forEach(async place => {
+    assert(_.has(await fmi.getForecast(place), ["Temperature"]));
+  });
 }
 
 test();
